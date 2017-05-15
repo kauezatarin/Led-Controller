@@ -1,0 +1,60 @@
+===============LEGENDA=================
+
+led => representa o led que receberá a ação ou indica um comando especial
+r => representa a intencidade do vermelho
+g => representa a intencidade do verde
+b => representa a intencidade do azul
+
+=======================================
+
+============AÇÕES DE LED===============
+
+led, r, g, b --> acende o led RGB na cor especificada
+led, 0, 0, 0 --> apaga o led RGB indicado
+
+led, 1 --> acende o led de unica cor indicado
+led, 0 --> apaga o led de unica cor indicado
+
+=======================================
+
+===========AÇÕES ESPECIAIS=============
+
+---------------LED's-------------------
+se led = 0 --> apaga todos os leds
+se led = 200 --> pisca os leds intercaladamente para teste (tempo estimado do teste 10 segundos)
+se led = 201 --> alterna debug on / off
+
+---------------FIRMWARE----------------
+se led = 100 --> handshake
+se led = 101 --> retorna a versão do sketch upado no arduino
+se led = 102 --> recarrega as configurações da memória
+se led = 103 --> alterna entre controle PNP e não PNP
+----------------EEPROM-----------------
+
+se led = 110 --> limpa todos os dados da EEPROM
+se led = 111 --> envia pela serial as configurações salvas na EEPROM
+se led = 112 --> salva as configurações atuais na EEPROM
+se led = 113 --> printa os valores salvos na EEPROM
+
+=======================================
+
+========ENDEREÇAMENTO DE MEMORIA=======
+
+byte 0 --> controle de primeira inicialização 0- primeira 1-demais
+
+byte 1 --> led 1 on/off
+byte 2 --> led 2 on/off
+byte 3 --> led 3 on/off
+byte 4 --> led 4 on/off
+
+byte 5 --> led RGB 1 on/off
+byte 6 --> led RGB 1 red
+byte 7 --> led RGB 1 green
+byte 8 --> led RGB 1 blue
+
+byte 9 --> led RGB 2 on/off
+byte 10 --> led RGB 2 red
+byte 11 --> led RGB 2 green
+byte 12 --> led RGB 2 blue
+
+byte 13 --> utiliza transistor PNP?
